@@ -1,4 +1,9 @@
 
+
+/*
+ * Face class. HAS INTEGER INDEXES NOT POINTS
+ *  of where the vertexes are stored in the 3d point arraylist
+ */
 public class Face {
 int v0index;
 int v1index;

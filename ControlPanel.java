@@ -5,9 +5,13 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 import javax.swing.event.*;
 
+/*
+ * Class that has the gui the user interacts with to change what is drawn
+ */
+
 class ControlPanel extends JPanel implements ChangeListener,ActionListener
  {
- 	ColorPanel cPanel;
+ 	CubePanel cPanel;
 	JSlider xThetaSlider, yThetaSlider, zThetaSlider, customThetaSlider;
 	private JTextField pxField;
 	private JTextField pyField;
@@ -24,7 +28,7 @@ class ControlPanel extends JPanel implements ChangeListener,ActionListener
 	private JPanel panel_3;
 	private JTextArea txtrUseTheSlider;
  
- 	public ControlPanel(ColorPanel cp)
+ 	public ControlPanel(CubePanel cp)
 	{
 		cPanel=cp;
 		
@@ -142,9 +146,9 @@ class ControlPanel extends JPanel implements ChangeListener,ActionListener
 		txtrUseTheSlider.setEditable(false);
 		panel_1.add(txtrUseTheSlider, BorderLayout.CENTER);
     
-   }//end contructor
+   }
    
-   public void stateChanged(ChangeEvent ev)
+   public void stateChanged(ChangeEvent ev) //sets the slider values to their appropriate attributes in CubePanel
    {
 	   
 	   cPanel.xTheta=xThetaSlider.getValue();

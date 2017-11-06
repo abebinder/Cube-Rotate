@@ -1,7 +1,10 @@
 import java.awt.*;
 import javax.swing.*;
-
-public class ColorTest 
+/*
+ * Puts the cubepanel and controlpanel next to each other and links them and 
+ * displays
+ */
+public class Main 
 {
   public static void main(String[] args) 
   {
@@ -9,7 +12,7 @@ public class ColorTest
     frame.setTitle("Colors");
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	 
-    ColorPanel cPanel = new ColorPanel();
+    CubePanel cPanel = new CubePanel();
 	 ControlPanel sliders = new ControlPanel(cPanel);
 	 Container cp = frame.getContentPane();
 	 cp.setLayout(new BorderLayout());
@@ -18,7 +21,7 @@ public class ColorTest
 
     frame.pack();
     frame.setVisible(true);
-  }//end main
+  }
   
 }
   
