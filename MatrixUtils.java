@@ -2,6 +2,16 @@ import java.util.ArrayList;
 
 public class MatrixUtils {
 	
+	
+	
+	
+	/*
+	 * Figures out if the z componenent of the cross product of two vectors is negative.
+	 * Used to figure out if a face should be painted or  not. If it is facing in the general
+	 * direction of the eye
+	 *  Changed from 0 to-.1 to avoid displaying more
+	 * than the 
+	 */
 	boolean zOfCrossNegative(double[]u, double[]v){
 		double[]cross=crossProduct(u, v);
 		if(cross[2]<-0.1){

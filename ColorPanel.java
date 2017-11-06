@@ -46,7 +46,7 @@ public class ColorPanel extends JPanel
 		colors[2]=Color.YELLOW;
 		colors[3]=Color.RED;
 		colors[4]=Color.MAGENTA;
-		colors[5]=Color.PINK;
+		colors[5]=Color.ORANGE;
 
 
 
@@ -96,7 +96,6 @@ public class ColorPanel extends JPanel
 					customPointx, customPointy, customPointz, customDirx, customDiry,customDirz, customTheta);
 		}
 		
-		//ArrayList<Point3D>updated=utils.rotateAllPointsAroundArbitrary((ArrayList<Point3D>)v.clone(),1,0,0,1,1,1, customTheta);
 		scalePoint3D(updated);
 		
 		ArrayList<Point2D.Double> two_d=convert3DPointsTo2DPoints(updated, 1000);

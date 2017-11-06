@@ -161,7 +161,7 @@ class ControlPanel extends JPanel implements ChangeListener,ActionListener
 	   cPanel.isWireFrame=toggleWireFrame.isSelected();
 	   cPanel.customPointx=Double.parseDouble(pxField.getText());
 	   cPanel.customPointy=Double.parseDouble(pyField.getText());
-	   cPanel.customPointy=Double.parseDouble(pyField.getText());
+	   cPanel.customPointz=Double.parseDouble(pzField.getText());
 	   cPanel.customDirx=Double.parseDouble(xDirField.getText());
 	   cPanel.customDiry=Double.parseDouble(yDirField.getText());
 	   cPanel.customDirz=Double.parseDouble(zDirField.getText());
