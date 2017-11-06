@@ -51,7 +51,7 @@ class ControlPanel extends JPanel implements ChangeListener,ActionListener
 		yThetaSlider.setPaintTicks(true);
 		yThetaSlider.setPaintLabels(true);
 		
-      zThetaSlider = new JSlider(JSlider.VERTICAL,0,255,0);
+      zThetaSlider = new JSlider(JSlider.VERTICAL,0,360,0);
       r.add(zThetaSlider, BorderLayout.EAST);
       zThetaSlider.addChangeListener(this);
       zThetaSlider.setMajorTickSpacing(50);
@@ -111,17 +111,17 @@ class ControlPanel extends JPanel implements ChangeListener,ActionListener
 		panel_2.add(plusLabel);
 		
 		xDirField = new JTextField();
-		xDirField.setText("0");
+		xDirField.setText("1");
 		panel_2.add(xDirField);
 		xDirField.setColumns(10);
 		
 		yDirField = new JTextField();
-		yDirField.setText("0");
+		yDirField.setText("1");
 		panel_2.add(yDirField);
 		yDirField.setColumns(10);
 		
 		zDirField = new JTextField();
-		zDirField.setText("0");
+		zDirField.setText("1");
 		panel_2.add(zDirField);
 		zDirField.setColumns(10);
 		

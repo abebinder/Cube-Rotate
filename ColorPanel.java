@@ -34,9 +34,9 @@ public class ColorPanel extends JPanel
     	customPointx=0;
     	customPointy=0;
     	customPointz=0;
-    	customDirx=0;
-    	customDiry=0;
-    	customDirz=0;
+    	customDirx=1;
+    	customDiry=1;
+    	customDirz=1;
 		setPreferredSize(new Dimension(500,400));
 		setBackground(Color.lightGray);
 		utils=new MatrixUtils();
@@ -94,9 +94,6 @@ public class ColorPanel extends JPanel
 		else{
 			updated=utils.rotateAllPointsAroundArbitrary((ArrayList<Point3D>)v.clone(),
 					customPointx, customPointy, customPointz, customDirx, customDiry,customDirz, customTheta);
-			//updated=utils.rotateAllPointsAroundArbitrary((ArrayList<Point3D>)v.clone(),
-			//		0, 0, 0, 1, 0,0, customTheta);
-			System.out.println("hi");
 		}
 		
 		//ArrayList<Point3D>updated=utils.rotateAllPointsAroundArbitrary((ArrayList<Point3D>)v.clone(),1,0,0,1,1,1, customTheta);
