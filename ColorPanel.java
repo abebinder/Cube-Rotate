@@ -9,14 +9,34 @@ import java.util.*;
 
 public class ColorPanel extends JPanel
 {
-	double theta;
-	
+	double xTheta;
+	double yTheta;
+	double zTheta;
+	double customTheta;
 	MatrixUtils utils;
 	Color[] colors;
+	boolean isWireFrame;
+	boolean isCustomAxis;
+	double customPointx;
+	double customPointy;
+	double customPointz;
+	double customDirx;
+	double customDiry;
+	double customDirz;
 	 
     public ColorPanel ()
 	 {
-    	theta=0;
+    	isWireFrame=false;
+    	isCustomAxis=false;
+    	xTheta=0;
+    	yTheta=0;
+    	zTheta=0;
+    	customPointx=0;
+    	customPointy=0;
+    	customPointz=0;
+    	customDirx=0;
+    	customDiry=0;
+    	customDirz=0;
 		setPreferredSize(new Dimension(500,400));
 		setBackground(Color.lightGray);
 		utils=new MatrixUtils();
@@ -64,13 +84,33 @@ public class ColorPanel extends JPanel
 		f.add(new Face(7,6,1,0));
 		f.add(new Face(7,0,3,4));
 		f.add(new Face(1,6,5,2));
-
-		ArrayList<Point3D>updated=utils.rotateAllPointsAroundArbitrary((ArrayList<Point3D>)v.clone(),1,0,0,1,1,1, theta);
+		ArrayList<Point3D>updated=new ArrayList<Point3D>();
+		if(!isCustomAxis){
+			updated=utils.rotateAllPointsAroundX((ArrayList<Point3D>)v.clone(), xTheta);
+			updated=utils.rotateAllPointsAroundY(updated, yTheta);
+			updated=utils.rotateAllPointsAroundZ(updated, zTheta);
+		}
+		
+		else{
+			updated=utils.rotateAllPointsAroundArbitrary((ArrayList<Point3D>)v.clone(),
+					customPointx, customPointy, customPointz, customDirx, customDiry,customDirz, customTheta);
+			//updated=utils.rotateAllPointsAroundArbitrary((ArrayList<Point3D>)v.clone(),
+			//		0, 0, 0, 1, 0,0, customTheta);
+			System.out.println("hi");
+		}
+		
+		//ArrayList<Point3D>updated=utils.rotateAllPointsAroundArbitrary((ArrayList<Point3D>)v.clone(),1,0,0,1,1,1, customTheta);
 		scalePoint3D(updated);
 		
 		ArrayList<Point2D.Double> two_d=convert3DPointsTo2DPoints(updated, 1000);
 		
+		if(isWireFrame){
+			drawCube(g2d, f, two_d);
+		}
+		else{
+		
 		paintCube(g2d, f, two_d, updated);
+		}
 		
 		
 		
@@ -125,7 +165,7 @@ public class ColorPanel extends JPanel
 
 			double[]v1={p0x-p1x,p0y-p1y,p0z-p1z};
 			double[]v2={p1x-p2x,p1y-p2y,p1z-p2z};
-			if(!utils.zOfCrossNegative(v1, v2)){
+			if(utils.zOfCrossNegative(v1, v2)){
 			g2d.setColor(colors[i]);
 			paintFace(g2d, f.get(i), a);
 			}

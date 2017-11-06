@@ -4,7 +4,7 @@ public class MatrixUtils {
 	
 	boolean zOfCrossNegative(double[]u, double[]v){
 		double[]cross=crossProduct(u, v);
-		if(cross[2]<0.00001){
+		if(cross[2]<-0.1){
 			return true;
 		}
 		return false;
@@ -53,11 +53,15 @@ public class MatrixUtils {
 		double d=Math.pow(b,2.0)+Math.pow(c,2.0);
 		d=Math.pow(d, 1.0/2.0);
 		p=translate(p, -vector_p_x, -vector_p_y, -vector_p_z);
+		if(c!=0.0&&b!=0.0){
 		p=arbitraryHelperOne(p,a, b, c, d);
+		}
 		p=arbitraryHelperTwo(p, a, b, c, d);
 		p=rotateAroundZ(p, theta);
 		p=arbitraryHelperTwo(p, -a, b, c, d);
+		if(c!=0.0&&b!=0.0){
 		p=arbitraryHelperOne(p,a,-b,c,d);
+		}
 		p=translate(p, vector_p_x, vector_p_y, vector_p_z);
 		return p;
 	}
